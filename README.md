@@ -10,9 +10,8 @@ When user click to link in the mail, user's account become active. Until then us
  
 * Login Service
 * Mail Service
-** Gmail Service
+   * Gmail Service
 
 In addition:
 
 * Custom Handler Exception
-
