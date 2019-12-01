@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="comelarslanloginMongo" target="1.7" />
+      <module name="comelarslanloginMongo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
