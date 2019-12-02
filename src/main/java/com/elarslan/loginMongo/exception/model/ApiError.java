@@ -1,5 +1,6 @@
 package com.elarslan.loginMongo.exception.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
@@ -7,35 +8,37 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by ersin on 19.11.2019.
+ * Created by ersin on 01.12.2019.
  */
 @Getter
 public class ApiError {
 
     private HttpStatus status;
-    private String message;
-    private List<String> errors;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String error;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private List<String> message;
 
     public ApiError() {
         super();
     }
 
-    public ApiError(final HttpStatus status, final String message, final List<String> errors) {
+    public ApiError(final HttpStatus status, final List<String> message, final String error) {
         super();
         this.status = status;
+        this.error = error;
         this.message = message;
-        this.errors = errors;
     }
 
-    public ApiError(HttpStatus status, List<String> errors) {
+    public ApiError(HttpStatus status, List<String> message) {
         this.status = status;
-        this.errors = errors;
+        this.message = message;
     }
 
-    public ApiError(final HttpStatus status, final String message, final String error) {
+    public ApiError(final HttpStatus status, final String error, final String message) {
         super();
         this.status = status;
-        this.message = message;
-        errors = Collections.singletonList(error);
+        this.error = message;
+        this.message = Collections.singletonList(error);
     }
 }

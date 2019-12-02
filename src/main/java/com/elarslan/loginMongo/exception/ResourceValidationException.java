@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  */
 @Slf4j
 @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-public class ResourceValidationException extends RuntimeException{
+public class ResourceValidationException extends RuntimeException {
 
     private String resourceName;
     private String fieldName;
@@ -18,7 +18,7 @@ public class ResourceValidationException extends RuntimeException{
 
     public ResourceValidationException(String resourceName, String fieldName, Object fieldValue) {
 
-        super(String.format("%s not found with %s : '%s'", resourceName ,fieldName, fieldValue));
+        super(String.format("%s not found with %s : '%s'", resourceName, fieldName, fieldValue));
         this.resourceName = resourceName;
         this.fieldName = fieldName;
         this.fieldValue = fieldValue;

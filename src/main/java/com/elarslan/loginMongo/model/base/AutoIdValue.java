@@ -9,6 +9,4 @@ public class AutoIdValue {
     @Getter
     @Id
     protected String id;
-
-
 }

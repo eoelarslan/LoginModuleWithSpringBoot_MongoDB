@@ -10,7 +10,4 @@ public class Address {
 
     //Can be added more attributes for Address for future use.
     private String postalCode;
-
-
-
 }

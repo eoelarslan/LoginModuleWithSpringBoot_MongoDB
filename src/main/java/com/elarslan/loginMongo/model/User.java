@@ -8,7 +8,6 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
-import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -18,7 +17,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
- * Created by ersin on 21.11.2019.
+ * Created by ersin on 01.12.2019.
  */
 @Data
 @AllArgsConstructor
@@ -27,7 +26,6 @@ import java.time.LocalDateTime;
 public class User extends DataEntity implements Serializable{
 
     @NotNull(message = "Please enter the name.")
-    @Valid
     private String name;
 
     @NotBlank(message = "Please enter the surname.")
