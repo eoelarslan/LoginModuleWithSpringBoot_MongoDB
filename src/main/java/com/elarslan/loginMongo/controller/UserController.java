@@ -4,7 +4,7 @@ package com.elarslan.loginMongo.controller;
 import com.elarslan.loginMongo.controller.dto.base.GenericResponseDTO;
 import com.elarslan.loginMongo.controller.dto.requestdto.RegisterRequestDTO;
 import com.elarslan.loginMongo.exception.ResourceNotFoundException;
-import com.elarslan.loginMongo.model.User;
+import com.elarslan.loginMongo.model.EmbeddedDocument.User;
 import com.elarslan.loginMongo.repository.UserRepository;
 import com.elarslan.loginMongo.util.helper.MessageHelper;
 import org.modelmapper.ModelMapper;

@@ -1,9 +1,8 @@
 package com.elarslan.loginMongo.controller.dto.requestdto;
 
 
-import com.elarslan.loginMongo.model.Address;
-import com.elarslan.loginMongo.model.Country;
-import com.elarslan.loginMongo.validator.constraint.ValidPassword;
+import com.elarslan.loginMongo.model.EmbeddedDocument.Address;
+import com.elarslan.loginMongo.model.EmbeddedDocument.Country;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -11,7 +10,6 @@ import lombok.ToString;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Getter
 @Setter

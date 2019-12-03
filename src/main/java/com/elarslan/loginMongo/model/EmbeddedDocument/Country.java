@@ -1,4 +1,4 @@
-package com.elarslan.loginMongo.model;
+package com.elarslan.loginMongo.model.EmbeddedDocument;
 
 import lombok.Data;
 

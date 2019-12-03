@@ -3,7 +3,7 @@ package com.elarslan.loginMongo.service;
 
 import com.elarslan.loginMongo.controller.dto.requestdto.RegisterRequestDTO;
 import com.elarslan.loginMongo.controller.dto.requestdto.SignInRequestDTO;
-import com.elarslan.loginMongo.model.User;
+import com.elarslan.loginMongo.model.EmbeddedDocument.User;
 import com.elarslan.loginMongo.repository.UserRepository;
 import com.elarslan.loginMongo.util.enums.LoginModule;
 import com.elarslan.loginMongo.util.enums.MessageStatus;

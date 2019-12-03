@@ -6,7 +6,7 @@ import com.elarslan.loginMongo.controller.dto.requestdto.RegisterRequestDTO;
 import com.elarslan.loginMongo.controller.dto.requestdto.SignInRequestDTO;
 import com.elarslan.loginMongo.controller.dto.requestdto.SignOutRequestDTO;
 import com.elarslan.loginMongo.controller.dto.responsedto.LoginResponseDTO;
-import com.elarslan.loginMongo.model.User;
+import com.elarslan.loginMongo.model.EmbeddedDocument.User;
 import com.elarslan.loginMongo.repository.UserRepository;
 import com.elarslan.loginMongo.service.LoginService;
 import com.elarslan.loginMongo.service.MailService;

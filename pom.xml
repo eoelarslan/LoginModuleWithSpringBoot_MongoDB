@@ -25,6 +25,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <querydsl.version>4.1.4</querydsl.version>
+    <projectreactor.version>3.2.0.RELEASE</projectreactor.version>
   </properties>
 
   <dependencies>
@@ -99,7 +101,20 @@
           <artifactId>javassist</artifactId>
           <version>3.12.0.GA</version>
       </dependency>
+
+    <dependency>
+      <groupId>com.querydsl</groupId>
+      <artifactId>querydsl-mongodb</artifactId>
+      <version>${querydsl.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.querydsl</groupId>
+      <artifactId>querydsl-apt</artifactId>
+      <version>${querydsl.version}</version>
+    </dependency>
+
   </dependencies>
+
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
@@ -146,4 +161,5 @@
       </plugins>
     </pluginManagement>
   </build>
+
 </project>

@@ -1,6 +1,7 @@
 package com.elarslan.loginMongo.config;
 
 
+import com.elarslan.loginMongo.event.CascadeSaveMongoEventListener;
 import com.mongodb.client.MongoClients;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -17,21 +18,6 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories(basePackages = "com.elarslan.repository")
 @Configuration
 public class MongoConfig extends AbstractMongoClientConfiguration {
-
-    /*@Override
-    protected String getDatabaseName() {
-        return "loginwithmongo";
-    }
-
-    @Override
-    public MongoClient mongoClient() {
-        return new MongoClient("127.0.0.1", 27017);
-    }
-
-    @Override
-    protected String getMappingBasePackage() {
-        return "com.elarslan.loginMongo";
-    }*/
 
     @Value("${spring.data.mongodb.host}")
     private String host;
@@ -51,6 +37,12 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
     MongoTransactionManager transactionManager(MongoDbFactory dbFactory) {
         return new MongoTransactionManager(dbFactory);
     }
+
+    @Bean
+    public CascadeSaveMongoEventListener cascadingMongoEventListener() {
+        return new CascadeSaveMongoEventListener();
+    }
+
 
     @Override
     public com.mongodb.client.MongoClient mongoClient() {

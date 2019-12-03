@@ -1,7 +1,7 @@
 package com.elarslan.loginMongo.repository;
 
 
-import com.elarslan.loginMongo.model.User;
+import com.elarslan.loginMongo.model.EmbeddedDocument.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
