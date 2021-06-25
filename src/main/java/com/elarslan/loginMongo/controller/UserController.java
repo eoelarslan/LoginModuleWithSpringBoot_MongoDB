@@ -29,9 +29,43 @@ public class UserController {
 
     @Autowired
     private ModelMapper modelMapper;
-        
+
     @Autowired
     private MessageHelper messageHelper;
 
-   //...
+    @GetMapping("/users")
+    public ResponseEntity getAllUsers() {
+        return ResponseEntity.ok().body(new GenericResponseDTO<>(HttpStatus.ACCEPTED,
+                messageHelper.getMessageByMessageStatus(DATA_RETRIEVED, null), userRepository.findAll()));
+    }
+
+    @GetMapping("/users/{email}")
+    public ResponseEntity getUserByEmail(@PathVariable(value = "email") String email) {
+        return ResponseEntity.ok().body(new GenericResponseDTO<>(HttpStatus.ACCEPTED,
+                messageHelper.getMessageByMessageStatus(DATA_RETRIEVED, null),userRepository.findByEmail(email)
+                .orElseThrow(() -> new ResourceNotFoundException("User", "email", email))));
+    }
+
+    @PutMapping("/users/{email}")
+    public ResponseEntity updateUser(@PathVariable(value = "email") String email,
+                           @Valid @RequestBody RegisterRequestDTO userDetails) {
+
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new ResourceNotFoundException("User", "id", email));
+
+        modelMapper.map(userDetails,user);
+
+        return ResponseEntity.ok().body(new GenericResponseDTO<>(HttpStatus.ACCEPTED,
+                messageHelper.getMessageByMessageStatus(USER_UPDATED, null), userRepository.save(user)));
+    }
+
+    @DeleteMapping("/users/{email}")
+    public ResponseEntity<?> deleteUser(@PathVariable(value = "email") String email) {
+        userRepository.findByEmail(email)
+                .orElseThrow(() -> new ResourceNotFoundException("User", "email", email));
+        userRepository.deleteUserByEmail(email);
+
+        return ResponseEntity.ok().body(new GenericResponseDTO<>(HttpStatus.ACCEPTED,
+                messageHelper.getMessageByMessageStatus(DELETED, null), email));
+    }
 }
