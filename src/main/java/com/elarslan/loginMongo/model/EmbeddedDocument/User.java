@@ -25,37 +25,11 @@ import java.time.LocalDateTime;
 @Document("user")
 public class User extends DataEntity implements Serializable{
 
-    @NotNull(message = "Please enter the name.")
+    //...
+
+    @Field("username")
     private String name;
 
-    @NotBlank(message = "Please enter the surname.")
-    private String surname;
 
-    @Indexed(unique = true)
-    @NotBlank(message = "Please enter an email.")
-    @Email(message = "Invalid email.", regexp = "^(.+)@(.+)$")
-    private String email;
-
-    @NotBlank(message = "Please enter address.")
-    private Address address;
-
-    @NotBlank(message = "Please enter country.")
-    private Country country;
-
-    private int userStatusCode;
-
-    private int loginModuleCode;
-
-    private LocalDateTime createdTime;
-
-    private LocalDate updatedTime;
-
-    private LocalDateTime mailSentTime;
-
-    private String authenticationToken;
-
-
-    @Size(min = 8, max = 30)
-    @ValidPassword
-    private String password;
+    //...
 }
