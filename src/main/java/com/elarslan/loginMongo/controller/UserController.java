@@ -46,17 +46,13 @@ public class UserController {
                 .orElseThrow(() -> new ResourceNotFoundException("User", "email", email))));
     }
 
-    @PutMapping("/users/{email}")
-    public ResponseEntity updateUser(@PathVariable(value = "email") String email,
-                           @Valid @RequestBody RegisterRequestDTO userDetails) {
+    @PostMapping("/users")
+    public ResponseEntity updateUser(@Valid @RequestBody RegisterRequestDTO userDetails) {
 
-        User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new ResourceNotFoundException("User", "id", email));
-
-        modelMapper.map(userDetails,user);
+        User user = registrationService(userDetails)
 
         return ResponseEntity.ok().body(new GenericResponseDTO<>(HttpStatus.ACCEPTED,
-                messageHelper.getMessageByMessageStatus(USER_UPDATED, null), userRepository.save(user)));
+                messageHelper.getMessageByMessageStatus(USER_CREATED, null), userRepository.save(user)));
     }
 
     @DeleteMapping("/users/{email}")
