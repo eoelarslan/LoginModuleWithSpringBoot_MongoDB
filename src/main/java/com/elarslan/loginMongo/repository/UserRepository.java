@@ -17,6 +17,7 @@ public interface UserRepository extends MongoRepository<User, Long> {
     Optional<User> findByEmail(String email);
 
     void deleteUserByEmail(String email);
+}
 
     /*List<Footballer> findByName(String name);
 
